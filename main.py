@@ -14,7 +14,6 @@ questions = []
 
 questionNum = 0
 
-numRightQuestions = 2
 
 WINDOWWIDTH = 800
 WINDOWHEIGHT = 600
@@ -36,7 +35,9 @@ start_bg = pygame.transform.scale(start_bg, (WINDOWWIDTH, WINDOWHEIGHT))
 
 
 def main():
-    global FPSCLOCK, DISPLAYSURF, BASICFONT, BIGFONT
+    global FPSCLOCK, DISPLAYSURF, BASICFONT, BIGFONT, numRightQuestions
+
+    numRightQuestions = 0
 
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
@@ -65,6 +66,7 @@ def loadQuestions():
 
 def runGame():
     showQuestion(2)
+    showPoints()
 
 
 def showQuestion(n):
@@ -95,6 +97,47 @@ def showQuestion(n):
     a4Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 7 / 8)
     pygame.draw.rect(DISPLAYSURF, RED, a4Rect)
     drawText(DISPLAYSURF, questions[n][4], DIMGRAY, a4Rect, BIGFONT)
+
+    notPressed = TRUE
+
+    answer = 0
+
+    while notPressed:
+
+        if checkForKeyPress():
+            pygame.event.get()  # clear event queue
+            return
+        pygame.display.update()
+
+        ev = pygame.event.get()
+
+        for event in ev:
+
+            if event.type == pygame.MOUSEBUTTONUP:
+                pos = pygame.mouse.get_pos()
+
+                if pos[1] > WINDOWHEIGHT/2:
+                    if pos[0] < WINDOWWIDTH/2:
+                        if pos[1] < WINDOWHEIGHT * 3 / 4:
+                            answer = 1
+                        else:
+                            answer = 2
+                    else:
+                        if pos[1] < WINDOWHEIGHT * 3 / 4:
+                            answer = 3
+                        else:
+                            answer = 4
+                    notPressed = FALSE
+
+    print(answer)
+
+    print(questions[n][5])
+
+    if int(questions[n][5]) == answer:
+        numRightQuestions += 1
+        print(numRightQuestions)
+    
+
     
 
     pygame.display.update()
@@ -166,6 +209,7 @@ def showStartScreen():
 
 def showPoints():
     pointsFont = pygame.font.Font('freesansbold.ttf', 100)
+    print(numRightQuestions)
     pointsSurf1 = pointsFont.render(str(numRightQuestions * 1000), True, WHITE, DARKGREEN)
     while True:
         DISPLAYSURF.fill(RED)
