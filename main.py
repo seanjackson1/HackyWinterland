@@ -7,6 +7,10 @@ from pygame.locals import *
 '''
 questions = []
 
+points = 0
+
+numRightQuestions = 0
+
 WINDOWWIDTH = 800
 WINDOWHEIGHT = 600
 
