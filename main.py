@@ -1,5 +1,11 @@
 import random, pygame, sys, os
 from pygame.locals import *
+'''
+[[Q1, A1, A2, A3, A4],
+[Q2, A1, A2, A3, A4],
+[Q3, A1, A2, A3, A4],...]
+'''
+questions = []
 
 WINDOWWIDTH = 800
 WINDOWHEIGHT = 600
@@ -22,11 +28,22 @@ def main():
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
     pygame.display.set_caption('Holiday Trivia')
 
+    loadQuestions()
+
     # show start screen, then run game forever
     showStartScreen()
     while True:
         runGame()
         showGameOverScreen()
+
+# load questions into array
+def loadQuestions():
+    f = open(os.path.join("./", "questions.txt"))
+    lines = f.readlines()
+    for line in lines:
+        line = line.strip() # remove \n
+        line = line.split(";")
+        questions.append([line[0],line[1],line[2],line[3],line[4]])
 
 # running the game (does nothing for now)
 def runGame():
