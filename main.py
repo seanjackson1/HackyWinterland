@@ -7,9 +7,9 @@ from pygame.locals import *
 '''
 questions = []
 
-points = 0
+questionNum = 0
 
-numRightQuestions = 0
+numRightQuestions = 2
 
 WINDOWWIDTH = 800
 WINDOWHEIGHT = 600
@@ -18,6 +18,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLACK     = (  0,   0,   0)
 DARKGREEN = (0, 155, 0)
+RED = (255, 0, 0)
 
 # loading and scaling start background
 start_bg = pygame.image.load(os.path.join("./images", "tree.jpg"))
@@ -52,7 +53,8 @@ def loadQuestions():
 # running the game (does nothing for now)
 def runGame():
     while True:
-        checkForKeyPress()
+        showQuestion(questionNum)
+        showPoints()
 
 # show game over screen (does nothing for now)
 def showGameOverScreen():
@@ -76,6 +78,19 @@ def showStartScreen():
             return
         pygame.display.update()
 
+def showPoints():
+    pointsFont = pygame.font.Font('freesansbold.ttf', 100)
+    pointsSurf1 = pointsFont.render(str(numRightQuestions * 1000), True, WHITE, DARKGREEN)
+    while True:
+        DISPLAYSURF.fill(RED)
+        pointsRect = pointsSurf1.get_rect()
+        pointsRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 2)
+        DISPLAYSURF.blit(pointsSurf1, pointsRect)
+
+        if checkForKeyPress():
+            pygame.event.get() # clear event queue
+            return
+        pygame.display.update()
 # draws message to press any key in bottom right of screen
 def drawPressKeyMsg():
     pressKeySurf = BASICFONT.render('Press any key.', True, WHITE)
