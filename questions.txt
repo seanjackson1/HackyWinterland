@@ -1,3 +1,7 @@
 test;a;b;c;d
 who are you?;yes;no;maybe so;idk
 what color is the sky?;blue;rainbow;purple;orange
+How much does the average American spend on gifts and holiday items?;Around $1000;Around $250;Around $400; Around 100
+What country has a tradition of eating KFC on Christmas day?;Japan;China;South Africa;US
+What is the name of the reindeer with a red nose?;Rudolph;Dancer;Dasher;Red nose
+Who is Santa Claus?;Father Christmas;Saint Nicholas;Father Christmas & Saint Nicholas;K-Pop Singer
