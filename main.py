@@ -2,9 +2,7 @@ import random
 import pygame
 import sys
 import os
-import pygame_widgets
 from pygame.locals import *
-from pygame_widgets.textbox import TextBox
 from tkinter import *
 
 '''
