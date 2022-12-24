@@ -1,3 +1,24 @@
+<<<<<<< HEAD
 test;a;b;c;d;1
 who are you?;yes;no;maybe so;idk;2
 what color is the sky? asdkfjahsdlkjfhas lkdjfhasdlkjfhu uuuuuuuu;blue;rainbow;purple;orange;3
+=======
+test;a;b;c;d
+who are you?;yes;no;maybe so;idk;1
+what color is the sky?;blue;rainbow;purple;orange;4
+How much does the average American spend on gifts and holiday items?;Around $1000;Around $250;Around $400; Around 100;1
+What country has a tradition of eating KFC on Christmas day?;Japan;China;South Africa;US;1
+What is the name of the reindeer with a red nose?;Red Nose;Dancer;Dasher;Rudolph;4
+Who is Santa Claus?;Father Christmas;Saint Nicholas;Father Christmas & Saint Nicholas;K-Pop Singer;3
+What indigenous tribe celebrated the first Thanksgiving?;The Cherokee;The Wampanoag; The Chumash; The Shawnee;2
+Where did Halloween originate?;US;Ireland;Canada;Wales;2
+The Menorah is used during which holiday?Eid Al-Fitr;Hannukah;Kwanzaa;Christmas;2
+What is the name of the spinning top used during Hannukah?Dreidel;Spinning Top;Yo-yo;Beyblade;1
+Diwali lasts for how many days?;4;6;3;5;4
+Which holiday is the biggest travel day of the year?;Christmas;Thanksgiving;4th of July;St. Patrick's Day;2
+What snack is traditionally left out for Santa Claus?;Brownies;Cookies;Cake;Pizza;2
+What percent of parents admit to stealing Halloween candy from their children?;50%;80%;20%;90%;4
+What British holiday is named after a man who tried to blow up a government building?;Guy Fieri;Guy Fawkes;Charles Thatcher; George Johnson;2
+The practice of decorating Easter eggs can be traced back to _____.;Greece;Egypt;England;Africa;4
+What Chinese holiday celebrates the life of a famous Chinese scholar?;Dragon Boat Festival;Chinese Lunar New Year; Mid-Autumn Festival;Confuscius Day;1
+>>>>>>> 63971c66fe9721b7cae51692361eff4ebcd555c7
