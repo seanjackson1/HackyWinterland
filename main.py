@@ -56,8 +56,6 @@ def main():
         showGameOverScreen()
 
 # load questions into array
-
-
 def loadQuestions():
     f = open(os.path.join("./", "questions.txt"))
     lines = f.readlines()
@@ -66,9 +64,6 @@ def loadQuestions():
         line = line.split(";")
         questions.append([line[0], line[1], line[2],
                          line[3], line[4], line[5]])
-
-# running the game (does nothing for now)
-
 
 def runGame():
     showQuestion(2)
@@ -184,9 +179,8 @@ def showPoints():
             pygame.event.get()  # clear event queue
             return
         pygame.display.update()
+
 # draws message to press any key in bottom right of screen
-
-
 def drawPressKeyMsg():
     pressKeySurf = BASICFONT.render('Press any key.', True, WHITE)
     pressKeyRect = pressKeySurf.get_rect()
