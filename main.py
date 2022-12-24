@@ -77,7 +77,6 @@ def showQuestion(n):
     questionRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 4)
     pygame.draw.rect(DISPLAYSURF, DIMGRAY, questionRect)
     drawText(DISPLAYSURF, questions[n][0], WHITE, questionRect, BIGFONT)
-
     
     a1Rect = pygame.Rect((0, WINDOWHEIGHT/2), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
     a1Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 5 / 8)
