@@ -13,6 +13,7 @@ from tkinter import *
 questions = []
 
 questionNum = 0
+NRQ = 0
 
 
 WINDOWWIDTH = 800
@@ -35,9 +36,7 @@ start_bg = pygame.transform.scale(start_bg, (WINDOWWIDTH, WINDOWHEIGHT))
 
 
 def main():
-    global FPSCLOCK, DISPLAYSURF, BASICFONT, BIGFONT, numRightQuestions
-
-    numRightQuestions = 0
+    global FPSCLOCK, DISPLAYSURF, BASICFONT, BIGFONT
 
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
@@ -71,6 +70,8 @@ def runGame():
 
 def showQuestion(n):
     DISPLAYSURF.fill(BLACK)
+
+    global NRQ
 
     questionRect = pygame.Rect((0, 0), (WINDOWWIDTH, WINDOWHEIGHT/2))
     questionRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 4)
@@ -129,16 +130,9 @@ def showQuestion(n):
                             answer = 4
                     notPressed = FALSE
 
-    print(answer)
-
-    print(questions[n][5])
-
     if int(questions[n][5]) == answer:
-        numRightQuestions += 1
-        print(numRightQuestions)
-    
-
-    
+        NRQ += 1
+        print(NRQ)
 
     pygame.display.update()
 
@@ -209,8 +203,7 @@ def showStartScreen():
 
 def showPoints():
     pointsFont = pygame.font.Font('freesansbold.ttf', 100)
-    print(numRightQuestions)
-    pointsSurf1 = pointsFont.render(str(numRightQuestions * 1000), True, WHITE, DARKGREEN)
+    pointsSurf1 = pointsFont.render(str(NRQ * 1000), True, WHITE, DARKGREEN)
     while True:
         DISPLAYSURF.fill(RED)
         pointsRect = pointsSurf1.get_rect()
