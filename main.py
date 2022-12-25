@@ -23,17 +23,19 @@ LIGHTBLUE = (167,199,231)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
-FERNGREEN = (79, 121, 66)
+GOODGREEN = (0, 100, 0)
 ACTDIMGRAY = (105, 105, 105)
 DARKGREEN = (0, 155, 0)
 RED = (255, 0, 0)
 DIMGRAY = (0, 0, 0)
-RED = (255, 0, 0)
+GOODRED = (200, 0, 0)
 BLUE = (0, 0, 255)
 
 # loading and scaling start background
 start_bg = pygame.image.load(os.path.join("./images", "tree.jpg"))
 start_bg = pygame.transform.scale(start_bg, (WINDOWWIDTH, WINDOWHEIGHT))
+question_bg = pygame.image.load(os.path.join("./images", "Winter Background.png"))
+question_bg = pygame.transform.scale(question_bg, (WINDOWWIDTH, WINDOWHEIGHT/2))
 
 
 def main():
@@ -92,30 +94,30 @@ def showQuestion(n):
     global NRQ
     global life
 
-    questionRect = pygame.Rect((0, 0), (WINDOWWIDTH, WINDOWHEIGHT/2))
+    questionRect = question_bg.get_rect()
     questionRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 4)
-    pygame.draw.rect(DISPLAYSURF, LIGHTBLUE, questionRect)
+    DISPLAYSURF.blit(question_bg, (0,0))
     drawText(DISPLAYSURF, questions[n][0], WHITE, questionRect, BIGFONT)
 
     a1Rect = pygame.Rect((0, WINDOWHEIGHT/2), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
     a1Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 5 / 8)
-    pygame.draw.rect(DISPLAYSURF, RED, a1Rect)
+    pygame.draw.rect(DISPLAYSURF, GOODRED, a1Rect)
     drawText(DISPLAYSURF, questions[n][1], DIMGRAY, a1Rect, BIGFONT)
 
     a2Rect = pygame.Rect((0, WINDOWHEIGHT*3/4),
                          (WINDOWWIDTH/2, WINDOWHEIGHT/4))
     a2Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 7 / 8)
-    pygame.draw.rect(DISPLAYSURF, GREEN, a2Rect)
+    pygame.draw.rect(DISPLAYSURF, GOODGREEN, a2Rect)
     drawText(DISPLAYSURF, questions[n][2], DIMGRAY, a2Rect, BIGFONT)
 
     a3Rect = pygame.Rect((WINDOWWIDTH/2, 0), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
     a3Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 5 / 8)
-    pygame.draw.rect(DISPLAYSURF, GREEN, a3Rect)
+    pygame.draw.rect(DISPLAYSURF, GOODGREEN, a3Rect)
     drawText(DISPLAYSURF, questions[n][3], DIMGRAY, a3Rect, BIGFONT)
 
     a4Rect = pygame.Rect((WINDOWWIDTH/2, 0), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
     a4Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 7 / 8)
-    pygame.draw.rect(DISPLAYSURF, RED, a4Rect)
+    pygame.draw.rect(DISPLAYSURF, GOODRED, a4Rect)
     drawText(DISPLAYSURF, questions[n][4], DIMGRAY, a4Rect, BIGFONT)
 
     notPressed = TRUE
