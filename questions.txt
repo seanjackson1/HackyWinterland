@@ -4,8 +4,8 @@ What is the name of the reindeer with a red nose?;Red Nose;Dancer;Dasher;Rudolph
 Who is Santa Claus?;Father Christmas;Saint Nicholas;Father Christmas & Saint Nicholas;K-Pop Singer;3
 What indigenous tribe celebrated the first Thanksgiving?;The Cherokee;The Wampanoag; The Chumash; The Shawnee;2
 Where did Halloween originate?;US;Ireland;Canada;Wales;2
-The Menorah is used during which holiday?;Eid Al-Fitr;Hannukah;Kwanzaa;Christmas;2
-What is the name of the spinning top used during Hannukah?;Dreidel;Spinning Top;Yo-yo;Beyblade;1
+The Menorah is used during which holiday?;Eid Al-Fitr;Hanukkah;Kwanzaa;Christmas;2
+What is the name of the spinning top used during Hanukkah?;Dreidel;Spinning Top;Yo-yo;Beyblade;1
 Diwali lasts for how many days?;4;6;3;5;4
 Which holiday is the biggest travel day of the year?;Christmas;Thanksgiving;4th of July;St. Patrick's Day;2
 What snack is traditionally left out for Santa Claus?;Brownies;Cookies;Cake;Pizza;2

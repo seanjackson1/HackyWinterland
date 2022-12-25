@@ -17,8 +17,8 @@ NRQ = 0
 
 life = 3
 
-WINDOWWIDTH = 800
-WINDOWHEIGHT = 600
+WINDOWWIDTH = 1600
+WINDOWHEIGHT = 1200
 LIGHTBLUE = (167,199,231)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -44,8 +44,8 @@ def main():
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
-    BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
-    BIGFONT = pygame.font.Font('freesansbold.ttf', 40)
+    BASICFONT = pygame.font.Font('freesansbold.ttf', 40)
+    BIGFONT = pygame.font.Font('freesansbold.ttf', 60)
     pygame.display.set_caption('Holiday Trivia')
 
     loadQuestions()
@@ -131,8 +131,10 @@ def showQuestion(n):
     
     while notPressed:
         ev = pygame.event.get()
-
         for event in ev:
+            if event.type == pygame.QUIT:
+                terminate()
+
             if event.type == pygame.USEREVENT:
                 counter -= 1
                 if counter == -1:
@@ -167,7 +169,7 @@ def showQuestion(n):
         pygame.draw.rect(DISPLAYSURF, GOODRED, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], DIMGRAY, a4Rect, BIGFONT)
 
-        DISPLAYSURF.blit(BIGFONT.render(text, True, RED), (WINDOWWIDTH/2 - 130, WINDOWHEIGHT/2 - 45))
+        DISPLAYSURF.blit(BIGFONT.render(text, True, RED), (WINDOWWIDTH/2 + 50, WINDOWHEIGHT/2 - 60))
         pygame.display.flip()
         clock.tick(60)
         pygame.display.update()
@@ -397,7 +399,7 @@ def showPoints():
 def drawPressKeyMsg():
     pressKeySurf = BASICFONT.render('Press any key.', True, WHITE)
     pressKeyRect = pressKeySurf.get_rect()
-    pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30)
+    pressKeyRect.topleft = (WINDOWWIDTH - 400, WINDOWHEIGHT - 70)
     DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
 
 # checks for key press, terminates if ESC
