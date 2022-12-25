@@ -80,7 +80,6 @@ def runGame():
             showPoints()
             if checkForKeyPress():
                 pygame.event.clear()  # clear event queue
-                return
             pygame.display.update()
     showGameOverScreen()
 
@@ -126,9 +125,6 @@ def showQuestion(n):
     answer = 0
     
     while notPressed:
-
-        if checkForKeyPress():
-            return
         ev = pygame.event.get()
 
         for event in ev:
@@ -381,10 +377,6 @@ def showPoints():
     lifeRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT * 2 / 3)
     DISPLAYSURF.blit(pointsSurf1, pointsRect)
     DISPLAYSURF.blit(lifeSurf1, lifeRect)
-
-    if checkForKeyPress():
-        pygame.event.clear()  # clear event queue
-        return
     pygame.display.update()
     pygame.time.wait(2000)
 
