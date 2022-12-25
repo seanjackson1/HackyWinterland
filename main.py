@@ -68,10 +68,10 @@ def loadQuestions():
 
 
 def runGame():
+    pygame.display.update()
     global life
     i = range(len(questions))
     indices = sorted(i, key=lambda x: random.random())
-    print(indices)
     for ind in indices:
         if life > 0:
             showQuestion(ind)
@@ -84,10 +84,11 @@ def runGame():
 
 
 def showQuestion(n):
-    DISPLAYSURF.fill(BLACK)
-
-
     pygame.event.clear()
+
+    clock = pygame.time.Clock()
+    counter, text = 5, 'TIME LEFT: 5'.rjust(2)
+    pygame.time.set_timer(pygame.USEREVENT, 1000)
 
     global NRQ
     global life
@@ -121,15 +122,21 @@ def showQuestion(n):
     notPressed = TRUE
 
     answer = 0
-    pygame.display.update()
+    
     while notPressed:
 
         if checkForKeyPress():
             return
-
         ev = pygame.event.get()
 
         for event in ev:
+            if event.type == pygame.USEREVENT:
+                counter -= 1
+                if counter == -1:
+                    notPressed = False
+                else:
+                    text = "TIME LEFT:" + str(counter).rjust(3)
+
             if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
 
@@ -144,10 +151,24 @@ def showQuestion(n):
                             answer = 3
                         else:
                             answer = 4
-                    notPressed = FALSE
-                    pygame.event.clear()
+                    notPressed = False
+        
+        pygame.draw.rect(DISPLAYSURF, LIGHTBLUE, questionRect)
+        drawText(DISPLAYSURF, questions[n][0], WHITE, questionRect, BIGFONT)
+        pygame.draw.rect(DISPLAYSURF, RED, a1Rect)
+        drawText(DISPLAYSURF, questions[n][1], DIMGRAY, a1Rect, BIGFONT)
+        pygame.draw.rect(DISPLAYSURF, GREEN, a2Rect)
+        drawText(DISPLAYSURF, questions[n][2], DIMGRAY, a2Rect, BIGFONT)
+        pygame.draw.rect(DISPLAYSURF, GREEN, a3Rect)
+        drawText(DISPLAYSURF, questions[n][3], DIMGRAY, a3Rect, BIGFONT)
+        pygame.draw.rect(DISPLAYSURF, RED, a4Rect)
+        drawText(DISPLAYSURF, questions[n][4], DIMGRAY, a4Rect, BIGFONT)
 
-
+        DISPLAYSURF.blit(BIGFONT.render(text, True, (0,0,0)), (WINDOWWIDTH/2 - 130, WINDOWHEIGHT/2 - 45))
+        pygame.display.flip()
+        clock.tick(60)
+        pygame.display.update()
+    
     if int(questions[n][5]) == 1:
         a1Rect = pygame.Rect((0, WINDOWHEIGHT/2),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
@@ -237,7 +258,6 @@ def showQuestion(n):
         pygame.draw.rect(DISPLAYSURF, GREEN, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], DIMGRAY, a4Rect, BIGFONT)
     if answer  == 1 and int(questions[n][5]) != answer:
-        print("here")
         a1Rect = pygame.Rect((0, WINDOWHEIGHT/2),(WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a1Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 5 / 8)
         pygame.draw.rect(DISPLAYSURF, RED, a1Rect)
@@ -259,6 +279,7 @@ def showQuestion(n):
         drawText(DISPLAYSURF, questions[n][4], WHITE, a4Rect, BIGFONT)
     pygame.display.update()
     pygame.time.wait(2000)
+
     if int(questions[n][5]) == answer: 
         NRQ += 1
     else:
@@ -322,6 +343,7 @@ def showGameOverScreen():
     pygame.display.update()
     while True:
         checkForKeyPress()
+        
 
 # showing the start screen
 
