@@ -32,7 +32,7 @@ GOODRED = (200, 0, 0)
 BLUE = (0, 0, 255)
 
 # loading and scaling start background
-start_bg = pygame.image.load(os.path.join("./images", "BetterTree.jpg"))
+start_bg = pygame.image.load(os.path.join("./images", "BetterTree.png"))
 start_bg = pygame.transform.scale(start_bg, (WINDOWWIDTH, WINDOWHEIGHT))
 question_bg = pygame.image.load(os.path.join("./images", "Winter Background.png"))
 question_bg = pygame.transform.scale(question_bg, (WINDOWWIDTH, WINDOWHEIGHT/2))
