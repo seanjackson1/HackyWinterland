@@ -50,6 +50,11 @@ def main():
 
     loadQuestions()
 
+    pygame.mixer.music.load(os.path.join("./sound", "bg_music.wav"))
+    pygame.mixer.music.play(-1)
+
+    pygame.mixer.music.set_volume(.3)
+
     # show start screen, then run game forever
     showStartScreen()
     while True:
@@ -276,12 +281,16 @@ def showQuestion(n):
         pygame.draw.rect(DISPLAYSURF, GOODRED, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], WHITE, a4Rect, BIGFONT)
     pygame.display.update()
-    pygame.time.wait(2000)
-
     if int(questions[n][5]) == answer: 
         NRQ += 1
+        ding_sound = pygame.mixer.Sound(os.path.join("./sound", "ding.wav"))
+        pygame.mixer.Sound.play(ding_sound)
     else:
         life -= 1
+        wrong_sound = pygame.mixer.Sound(os.path.join("./sound", "wrong.wav"))
+        pygame.mixer.Sound.play(wrong_sound)
+    pygame.time.wait(2000)
+    
     pygame.display.update()
 
 
@@ -327,6 +336,8 @@ def drawText(surface, text, color, rect, font, aa=False, bkg=None):
 
 
 def showGameOverScreen():
+    end_sound = pygame.mixer.Sound(os.path.join("./sound", "end_sound.wav"))
+    pygame.mixer.Sound.play(end_sound)
     gameOverFont = pygame.font.Font('freesansbold.ttf', 100)
     gameOverSurf = gameOverFont.render('GAME OVER', True, WHITE, DARKGREEN)
     DISPLAYSURF.fill(RED)
