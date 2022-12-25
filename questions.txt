@@ -10,8 +10,8 @@ Diwali lasts for how many days?;4;6;3;5;4
 Which holiday is the biggest travel day of the year?;Christmas;Thanksgiving;4th of July;St. Patrick's Day;2
 What snack is traditionally left out for Santa Claus?;Brownies;Cookies;Cake;Pizza;2
 What percent of parents admit to stealing Halloween candy from their children?;50%;80%;20%;90%;4
-What British holiday is named after a man who tried to blow up a government building?;Guy Fieri;Guy Fawkes;Charles Thatcher; George Johnson;2
-The practice of decorating Easter eggs can be traced back to _____.;Greece;Egypt;England;Africa;4
+Who is the person that a British holiday is named after because he tried to blow up a government building?;Guy Fieri;Guy Fawkes;Charles Thatcher; George Johnson;2
+The practice of decorating Easter eggs can be traced back to _____.;Australia;Europe;Asia;Africa;4
 What Chinese holiday celebrates the life of a famous Chinese scholar?;Dragon Boat Festival;Chinese Lunar New Year; Mid-Autumn Festival;Confucius Day;1
 When was the term "X-mas" invented?;1400s;1500s;1600s;1700s;2
 What does "Hanukkah" mean?;Dedication;Happiness;Gratefulness;Celebration;1
