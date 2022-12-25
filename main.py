@@ -76,11 +76,18 @@ def runGame():
         if life > 0:
             showQuestion(ind)
             showPoints()
+            if checkForKeyPress():
+                pygame.event.clear()  # clear event queue
+                return
+            pygame.display.update()
     showGameOverScreen()
 
 
 def showQuestion(n):
     DISPLAYSURF.fill(BLACK)
+
+
+    pygame.event.clear()
 
     global NRQ
 
@@ -119,7 +126,6 @@ def showQuestion(n):
     while notPressed:
 
         if checkForKeyPress():
-          # clear event queue
             return
 
         ev = pygame.event.get()
@@ -141,6 +147,9 @@ def showQuestion(n):
                         else:
                             answer = 4
                     notPressed = FALSE
+                    pygame.event.clear()
+
+
     if int(questions[n][5]) == 1:
         a1Rect = pygame.Rect((0, WINDOWHEIGHT/2),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
@@ -331,12 +340,15 @@ def showStartScreen():
         drawPressKeyMsg()
 
         if checkForKeyPress():
-            pygame.event.get()  # clear event queue
+            pygame.event.clear()  # clear event queue
             return
         pygame.display.update()
 
 
 def showPoints():
+
+    pygame.event.clear()
+
     pointsFont = pygame.font.Font('freesansbold.ttf', 100)
     pointsSurf1 = pointsFont.render("Points: " + str(NRQ * 1000), True, WHITE, DARKGREEN)
     lifeSurf1 = pointsFont.render("Lives: " + str(life), True, WHITE, DARKGREEN)
@@ -349,7 +361,7 @@ def showPoints():
     DISPLAYSURF.blit(lifeSurf1, lifeRect)
 
     if checkForKeyPress():
-        pygame.event.get()  # clear event queue
+        pygame.event.clear()  # clear event queue
         return
     pygame.display.update()
     pygame.time.wait(2000)
