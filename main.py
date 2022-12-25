@@ -17,8 +17,8 @@ NRQ = 0
 
 life = 3
 
-WINDOWWIDTH = 1600
-WINDOWHEIGHT = 1200
+WINDOWWIDTH = 1000
+WINDOWHEIGHT = 700
 LIGHTBLUE = (167,199,231)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -45,7 +45,7 @@ def main():
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
     BASICFONT = pygame.font.Font('freesansbold.ttf', 40)
-    BIGFONT = pygame.font.Font('freesansbold.ttf', 60)
+    BIGFONT = pygame.font.Font('freesansbold.ttf', 35)
     pygame.display.set_caption('Holiday Trivia')
 
     loadQuestions()
@@ -169,7 +169,7 @@ def showQuestion(n):
         pygame.draw.rect(DISPLAYSURF, GOODRED, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], DIMGRAY, a4Rect, BIGFONT)
 
-        DISPLAYSURF.blit(BIGFONT.render(text, True, RED), (WINDOWWIDTH/2 + 50, WINDOWHEIGHT/2 - 60))
+        DISPLAYSURF.blit(BIGFONT.render(text, True, RED), (WINDOWWIDTH/2 + 35, WINDOWHEIGHT/2 - 35))
         pygame.display.flip()
         clock.tick(60)
         pygame.display.update()
