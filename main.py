@@ -19,12 +19,12 @@ life = 3
 
 WINDOWWIDTH = 800
 WINDOWHEIGHT = 600
-
-
+LIGHTBLUE = (167,199,231)
+BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 FERNGREEN = (79, 121, 66)
-BLACK = (0, 0, 0)
+ACTDIMGRAY = (105, 105, 105)
 DARKGREEN = (0, 155, 0)
 RED = (255, 0, 0)
 DIMGRAY = (0, 0, 0)
@@ -68,12 +68,15 @@ def loadQuestions():
 
 
 def runGame():
+    global life
     i = range(len(questions))
     indices = sorted(i, key=lambda x: random.random())
     print(indices)
     for ind in indices:
-        showQuestion(ind)
-        showPoints()
+        if life > 0:
+            showQuestion(ind)
+            showPoints()
+    showGameOverScreen()
 
 
 def showQuestion(n):
@@ -85,7 +88,7 @@ def showQuestion(n):
 
     questionRect = pygame.Rect((0, 0), (WINDOWWIDTH, WINDOWHEIGHT/2))
     questionRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 4)
-    pygame.draw.rect(DISPLAYSURF, DIMGRAY, questionRect)
+    pygame.draw.rect(DISPLAYSURF, LIGHTBLUE, questionRect)
     drawText(DISPLAYSURF, questions[n][0], WHITE, questionRect, BIGFONT)
 
     a1Rect = pygame.Rect((0, WINDOWHEIGHT/2), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
@@ -147,24 +150,24 @@ def showQuestion(n):
         a2Rect = pygame.Rect((0, WINDOWHEIGHT*3/4),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a2Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 7 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a2Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a2Rect)
         drawText(DISPLAYSURF, questions[n][2], WHITE, a2Rect, BIGFONT)
 
         a3Rect = pygame.Rect((WINDOWWIDTH/2, 0), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a3Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 5 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a3Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a3Rect)
         drawText(DISPLAYSURF, questions[n][3], WHITE, a3Rect, BIGFONT)
 
         a4Rect = pygame.Rect((WINDOWWIDTH/2, 0),
                             (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a4Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 7 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a4Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], WHITE, a4Rect, BIGFONT)
     elif int(questions[n][5]) == 2:
         a1Rect = pygame.Rect((0, WINDOWHEIGHT/2),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a1Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 5 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a1Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a1Rect)
         drawText(DISPLAYSURF, questions[n][1], WHITE, a1Rect, BIGFONT)
         a2Rect = pygame.Rect((0, WINDOWHEIGHT*3/4),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
@@ -174,24 +177,24 @@ def showQuestion(n):
 
         a3Rect = pygame.Rect((WINDOWWIDTH/2, 0), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a3Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 5 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a3Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a3Rect)
         drawText(DISPLAYSURF, questions[n][3], WHITE, a3Rect, BIGFONT)
 
         a4Rect = pygame.Rect((WINDOWWIDTH/2, 0),
                             (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a4Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 7 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a4Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], WHITE, a4Rect, BIGFONT)
     elif int(questions[n][5]) == 3:
         a1Rect = pygame.Rect((0, WINDOWHEIGHT/2),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a1Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 5 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a1Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a1Rect)
         drawText(DISPLAYSURF, questions[n][1], WHITE, a1Rect, BIGFONT)
         a2Rect = pygame.Rect((0, WINDOWHEIGHT*3/4),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a2Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 7 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a2Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a2Rect)
         drawText(DISPLAYSURF, questions[n][2], WHITE, a2Rect, BIGFONT)
 
         a3Rect = pygame.Rect((WINDOWWIDTH/2, 0), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
@@ -202,23 +205,23 @@ def showQuestion(n):
         a4Rect = pygame.Rect((WINDOWWIDTH/2, 0),
                             (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a4Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 7 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a4Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], WHITE, a4Rect, BIGFONT)
     else:
         a1Rect = pygame.Rect((0, WINDOWHEIGHT/2),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a1Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 5 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a1Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a1Rect)
         drawText(DISPLAYSURF, questions[n][1], WHITE, a1Rect, BIGFONT)
         a2Rect = pygame.Rect((0, WINDOWHEIGHT*3/4),
                              (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a2Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 7 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a2Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a2Rect)
         drawText(DISPLAYSURF, questions[n][2], WHITE, a2Rect, BIGFONT)
 
         a3Rect = pygame.Rect((WINDOWWIDTH/2, 0), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
         a3Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 5 / 8)
-        pygame.draw.rect(DISPLAYSURF, DIMGRAY, a3Rect)
+        pygame.draw.rect(DISPLAYSURF, ACTDIMGRAY, a3Rect)
         drawText(DISPLAYSURF, questions[n][3], WHITE, a3Rect, BIGFONT)
 
         a4Rect = pygame.Rect((WINDOWWIDTH/2, 0),
@@ -226,13 +229,33 @@ def showQuestion(n):
         a4Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 7 / 8)
         pygame.draw.rect(DISPLAYSURF, GREEN, a4Rect)
         drawText(DISPLAYSURF, questions[n][4], DIMGRAY, a4Rect, BIGFONT)
+    if answer  == 1 and int(questions[n][5]) != answer:
+        print("here")
+        a1Rect = pygame.Rect((0, WINDOWHEIGHT/2),(WINDOWWIDTH/2, WINDOWHEIGHT/4))
+        a1Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 5 / 8)
+        pygame.draw.rect(DISPLAYSURF, RED, a1Rect)
+        drawText(DISPLAYSURF, questions[n][1], WHITE, a1Rect, BIGFONT)
+    elif answer == 2 and int(questions[n][5]) != answer:
+        a2Rect = pygame.Rect((0, WINDOWHEIGHT*3/4),(WINDOWWIDTH/2, WINDOWHEIGHT/4))
+        a2Rect.center = (WINDOWWIDTH / 4, WINDOWHEIGHT * 7 / 8)
+        pygame.draw.rect(DISPLAYSURF, RED, a2Rect)
+        drawText(DISPLAYSURF, questions[n][2], WHITE, a2Rect, BIGFONT)
+    elif answer == 3 and int(questions[n][5]) != answer:
+        a3Rect = pygame.Rect((WINDOWWIDTH/2, 0), (WINDOWWIDTH/2, WINDOWHEIGHT/4))
+        a3Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 5 / 8)
+        pygame.draw.rect(DISPLAYSURF, RED, a3Rect)
+        drawText(DISPLAYSURF, questions[n][3], WHITE, a3Rect, BIGFONT)
+    elif answer == 4 and int(questions[n][5]) != answer:
+        a4Rect = pygame.Rect((WINDOWWIDTH/2, 0),(WINDOWWIDTH/2, WINDOWHEIGHT/4))
+        a4Rect.center = (WINDOWWIDTH * 3 / 4, WINDOWHEIGHT * 7 / 8)
+        pygame.draw.rect(DISPLAYSURF, RED, a4Rect)
+        drawText(DISPLAYSURF, questions[n][4], WHITE, a4Rect, BIGFONT)
     pygame.display.update()
-    pygame.time.wait(1000)
+    pygame.time.wait(2000)
     if int(questions[n][5]) == answer: 
         NRQ += 1
     else:
         life -= 1
-
     pygame.display.update()
 
 
@@ -278,6 +301,18 @@ def drawText(surface, text, color, rect, font, aa=False, bkg=None):
 
 
 def showGameOverScreen():
+    gameOverFont = pygame.font.Font('freesansbold.ttf', 100)
+    gameOverSurf = gameOverFont.render('GAME OVER', True, WHITE, DARKGREEN)
+    DISPLAYSURF.fill(RED)
+    gameOverRect = gameOverSurf.get_rect()
+    gameOverRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT / 4)
+    DISPLAYSURF.blit(gameOverSurf, gameOverRect)
+    pointsFont = pygame.font.Font('freesansbold.ttf', 100)
+    pointsSurf1 = pointsFont.render("Points: " + str(NRQ * 1000), True, WHITE, DARKGREEN)
+    pointsRect = pointsSurf1.get_rect()
+    pointsRect.center = (WINDOWWIDTH / 2, WINDOWHEIGHT *2 / 3)
+    DISPLAYSURF.blit(pointsSurf1, pointsRect)
+    pygame.display.update()
     while True:
         checkForKeyPress()
 
@@ -317,7 +352,7 @@ def showPoints():
         pygame.event.get()  # clear event queue
         return
     pygame.display.update()
-    pygame.time.wait(1000)
+    pygame.time.wait(2000)
 
 # draws message to press any key in bottom right of screen
 
