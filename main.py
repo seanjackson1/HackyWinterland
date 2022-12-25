@@ -80,7 +80,6 @@ def showQuestion(n):
     DISPLAYSURF.fill(BLACK)
 
     global NRQ
-
     global life
 
     questionRect = pygame.Rect((0, 0), (WINDOWWIDTH, WINDOWHEIGHT/2))
@@ -116,13 +115,11 @@ def showQuestion(n):
     while notPressed:
 
         if checkForKeyPress():
-          # clear event queue
             return
 
         ev = pygame.event.get()
 
         for event in ev:
-
             if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
 
