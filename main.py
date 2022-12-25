@@ -57,9 +57,8 @@ def main():
 
     # show start screen, then run game forever
     showStartScreen()
-    while True:
-        runGame()
-        showGameOverScreen()
+    runGame()
+    showGameOverScreen()
 
 # load questions into array
 
