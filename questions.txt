@@ -32,3 +32,9 @@ Where is Songkran, one of the world's largest water festival, celebrated?;Thaila
 Where did the tradition of putting up a Christmas tree begin?;Netherlands;Austria;Hungary;Germany;4
 Which Greek God is Cupid based on?;Aphrodite;Eros;Athena;Apollo;2
 How many days of Hanukkah are there?;5;8;12;15;3
+What is Frosty the Snowman's nose made of?;A carrot;A button;A twig;A pencil;2
+How many candles should go on an advent wreath?;1;2;3;4;4
+What country has the tradition of filing children's clogs with treats and candies on December 5th?;Netherlands;Germany;Hungary;Estonia;1
+"A Charlie Brown Christmas" is based on what comic strip?;Archie;Garfield;Calvin and Hobbs;Peanuts;4
+What's the name of the main villain in "The Nightmare Before Christmas"?;Mr. Nightmare;Oogie Boogie;The Grinch;Mr. Evil;2
+Who plays the Grinch in "How The Grinch Stole Christmas?";Jim Carrey;Tom Cruise;Chris Hemsworth;Jack Black;1
