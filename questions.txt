@@ -31,7 +31,7 @@ What does the Mexican holiday of La Posada celebrate?;Poseidon;Christopher Colum
 Where is Songkran, one of the world's largest water festival, celebrated?;Thailand;Japan;Indonesia;Korea;1
 Where did the tradition of putting up a Christmas tree begin?;Netherlands;Austria;Hungary;Germany;4
 Which Greek God is Cupid based on?;Aphrodite;Eros;Athena;Apollo;2
-How many days of Hanukkah are there?;5;8;12;15;3
+How many days of Hanukkah are there?;5;8;12;15;2
 What is Frosty the Snowman's nose made of?;A carrot;A button;A twig;A pencil;2
 How many candles should go on an advent wreath?;1;2;3;4;4
 What country has the tradition of filing children's clogs with treats and candies on December 5th?;Netherlands;Germany;Hungary;Estonia;1
